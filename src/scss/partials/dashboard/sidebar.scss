@@ -1,0 +1,233 @@
+@use 'sass:map';
+
+.app-side-bar {
+	position: relative;
+	transition: all 0.6s ease-in-out;
+
+	&.sidebar-open {
+		.sidebar {
+			@media screen and (max-width: 797px) {
+				left: 0;
+				right: auto;
+
+				[dir="rtl"] & {
+					right: 0;
+					left: auto;
+				}
+			}
+		}
+	}
+
+	@media all and (max-width: 767px) {
+		// position: fixed;
+		left: -300px;
+		top: 0;
+	}
+
+	.sidebar {
+		transition: all 0.3s ease;
+		width: 300px;
+		background-color: #202020 !important;
+		padding: 20px;
+		height: 100vh;
+		overflow-x: hidden;
+		overflow-y: auto;
+		padding-top: 88px;
+		position: fixed;
+		z-index: 100;
+
+		@media screen and (max-width: 797px) {
+			left: -300px;
+			right: auto;
+
+			[dir="rtl"] & {
+				right: -300px;
+				left: auto;
+			}
+		}
+
+
+		.logo {
+			min-height: 87px;
+			position: fixed;
+			width: 300px;
+			z-index: 999999999;
+			background-color: map.get($main, black);
+			border-bottom: 1px solid map.get($grey, 500);
+		}
+
+
+		&:dir('rtl') {
+			right: 0;
+			left: auto;
+		}
+
+		.accordion-item {
+			margin-bottom: 10px;
+
+			.accordion-header {
+				cursor: pointer;
+
+				h3 {
+					margin: 0;
+					padding: 10px;
+					background-color: #ddd;
+
+					&:hover {
+						background-color: #ccc;
+					}
+				}
+			}
+
+			.accordion-content {
+				display: none;
+				padding: 10px;
+				background-color: #fff;
+			}
+
+			&.active {
+				.accordion-content {
+					display: block;
+				}
+			}
+		}
+
+		.menu-items {
+			.menu-item {
+				padding: 8px;
+				font-family: Inter;
+				font-style: normal;
+				font-weight: 500;
+				line-height: 28.8px;
+				color: map.get($grey, 400);
+				padding: 8px 20px;
+
+				.active,
+				&.menu-active {
+					.menu-title {
+						color: map.get($secondary, 500);
+					}
+				}
+
+				&.highlighted {
+					border-radius: 0;
+					background: #464646; // map.get($main, black);
+				}
+
+				a {
+					text-decoration: none;
+
+					.menu-title {
+						font-size: 18px;
+						margin-inline-start: 18px;
+						color: map.get($grey, 400);
+
+						&.active {
+							color: map.get($secondary, 500);
+						}
+					}
+				}
+
+				.arrow {
+					transition: all 0.2s linear;
+
+				}
+
+				&.has-children {
+
+					&:has(.active),
+					&.sub-menu-active {
+						.arrow {
+							transform: rotate(90deg);
+						}
+
+						.sub-menu,
+						*:has(> .active) {
+							display: block;
+							height: max-content;
+
+							.menu-item {
+								padding: 5px 0;
+
+								&.active {
+									.menu-title {
+										color: map.get($secondary, 500);
+									}
+								}
+
+								.menu-title {
+									margin: 0;
+									font-size: 18px;
+									font-weight: 400;
+								}
+							}
+						}
+
+					}
+				}
+			}
+
+
+
+			.sub-menu {
+				display: none;
+				height: 0;
+				overflow: hidden;
+				transition: all 1s ease;
+			}
+		}
+	}
+}
+
+/* Initial style for the sidebar toggler (hamburger) */
+.sidebar-toggler {
+	position: relative;
+	transition: all 0.3s ease;
+	box-shadow: none;
+	right: 15px;
+
+	&:focus {
+		box-shadow: none;
+	}
+
+	[dir="rtl"] & {
+		left: 15px;
+	}
+
+	.navbar-toggler-icon {
+		display: none;
+	}
+}
+
+.sidebar-toggler::before,
+.sidebar-toggler::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 3px;
+	background-color: black;
+	transition: all 0.3s ease;
+}
+
+.sidebar-toggler::before {
+	top: -8px;
+}
+
+.sidebar-toggler::after {
+	top: 8px;
+}
+
+/* Style for the cross icon */
+// .sidebar-toggler.cross-icon {
+// 	background-color: transparent;
+// }
+
+.sidebar-toggler.cross-icon::before {
+	transform: rotate(45deg);
+	top: 0;
+}
+
+.sidebar-toggler.cross-icon::after {
+	transform: rotate(-45deg);
+	top: 0;
+}

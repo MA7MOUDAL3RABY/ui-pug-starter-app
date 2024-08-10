@@ -1,0 +1,23 @@
+.btn {
+  --bs-btn-padding-x: 20px;
+  --bs-btn-padding-y: 6px;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 797px) {
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 797px) {
+  .modal .modal-content {
+    padding: 0 !important;
+  }
+}

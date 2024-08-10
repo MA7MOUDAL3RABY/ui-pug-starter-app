@@ -1,0 +1,75 @@
+@use "sass:map";
+
+#steper {
+
+	.steps-titles {
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+
+		.step_title {
+
+			@media screen and (max-width: 500px) {
+				font-size: 12px;
+			}
+
+			&.active {
+				font-weight: 600;
+			}
+		}
+	}
+
+	.steps {
+		.step {
+			border-radius: 50%;
+			background: white;
+			color: #4D97FF;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			font-size: 27px;
+			font-style: normal;
+			font-weight: 500;
+			z-index: 9999;
+
+			.number {
+				display: inline-block;
+			}
+
+			.check-mark {
+				display: none;
+			}
+
+			&.active {
+				background: map.get($primary, 400);
+				color: map.get($main, white);
+			}
+
+			&.passed {
+				background: map.get($primary, 800);
+				color: map.get($main, white);
+
+				.number {
+					display: none;
+				}
+
+				.check-mark {
+					display: inline-block;
+				}
+			}
+		}
+
+		.line {
+			content: " ";
+			background: #9F9F9F;
+			border: 1px solid map.get($grey, 400);
+			height: 1px;
+			width: auto;
+			display: block;
+			top: 16px;
+			left: 15px;
+			z-index: 1;
+			flex-grow: 1;
+		}
+	}
+}

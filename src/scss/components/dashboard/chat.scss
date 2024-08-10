@@ -1,0 +1,160 @@
+@use 'sass:map';
+
+.inbox-container {
+	position: relative;
+
+	.chat-items {
+		max-height: 50vh;
+		overflow-y: auto;
+
+		.chat-item {
+			cursor: pointer;
+
+			&:hover {
+				background-color: map.get($grey, 100);
+			}
+		}
+
+		.avatar {
+			font-size: 22px;
+			font-weight: bold;
+			text-align: center;
+			width: 56px;
+			height: 48px;
+		}
+
+		.msg-excerpt {
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			max-width: 225px;
+		}
+	}
+
+
+	.chat-controles {
+		margin-top: 15px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		padding: 20px;
+	}
+
+	#chat-box {
+		background-color: #fff;
+		padding: 10px;
+		border-radius: 10px;
+		box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+
+		#messages {
+			display: flex;
+			flex-direction: column;
+			height: 350px;
+			gap: 10px;
+		}
+
+
+		li {
+			max-width: 70%;
+			padding: 10px;
+			margin-bottom: 5px;
+			border-radius: 10px;
+			word-wrap: break-word;
+			list-style: none;
+
+			&.date-separator {
+				font-size: 16px;
+				display: block;
+				width: max-content;
+				background-color: map.get($grey, 300);
+				color: map.get($grey, 600);
+				margin: 10px auto;
+			}
+		}
+
+
+		.him,
+		.me {
+			min-width: 40%;
+
+			.timestamp {
+				display: block;
+				text-align: end;
+			}
+		}
+
+		.me {
+			background-color: map.get($primary, 200);
+			align-self: flex-end;
+			text-align: end;
+
+			.timestamp {
+				text-align: start;
+			}
+		}
+
+		.him {
+			background-color: map.get($grey, 100);
+			align-self: flex-start;
+		}
+
+		img {
+			max-width: 100%;
+			margin-top: 5px;
+			border-radius: 5px;
+		}
+	}
+
+	.input-group {
+		margin-top: 15px;
+	}
+
+	#send-btn,
+	#toggle-sender-btn,
+	#upload-btn {
+		border-radius: 5px;
+	}
+
+	#file-preview {
+		border: 1px solid #ddd;
+		padding: 10px;
+		border-radius: 5px;
+		background-color: #fff;
+		display: none;
+		max-width: 200px;
+	}
+
+	.search-input-group {
+		margin-top: 0;
+		border-bottom: 1px solid map.get($grey, 200);
+
+		input,
+		.input-group-text {
+			border: 0;
+			background: none;
+		}
+	}
+
+	#message-input {
+		border-radius: 0;
+		width: 100%;
+		display: block;
+		min-height: 100px;
+		margin: 0 auto;
+		border: 0;
+
+	}
+
+	#send-btn,
+	#toggle-sender-btn,
+	#upload-btn {
+		border-radius: 5px;
+	}
+
+	#file-preview {
+		border: 1px solid #ddd;
+		padding: 10px;
+		border-radius: 5px;
+		background-color: #fff;
+	}
+}

@@ -1,0 +1,19 @@
+.draggable-item {
+	cursor: move;
+
+	@media screen and (max-width: 797px) {
+		margin: 10px auto;
+	}
+
+	.skills {
+		@media screen and (max-width: 797px) {
+			margin: 5px auto;
+			flex-direction: column;
+		}
+	}
+
+	.card {
+		border: 0;
+		box-shadow: 0px 4px 4px 0px #0000002E;
+	}
+}

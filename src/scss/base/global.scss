@@ -1,0 +1,80 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+	background-color: #f7f7f7;
+
+	table {
+		vertical-align: middle !important;
+	}
+
+	.app {
+		padding-top: 72px;
+	}
+
+	.app-content {
+		margin-inline-start: 300px;
+		min-height: 100dvh;
+
+
+		@media all and (max-width: 797px) {
+			margin-inline-start: 0;
+			padding: 0 10px;
+			margin: 20px auto;
+		}
+
+		.sidebar-open {
+			margin-inline-start: 300px;
+
+			@media all and (max-width: 797px) {
+				margin-inline-start: 0;
+			}
+		}
+	}
+}
+
+html {
+	overflow-x: hidden;
+	max-width: 100vw;
+}
+
+.avatar {
+	border-radius: 70px;
+	border-width: 2px;
+}
+
+.empty-area {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	border-radius: 4px;
+	text-align: center;
+	min-height: 400px;
+	background: map-get($grey, 100);
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .container-xl, 
+	.container-lg, 
+	.container-md, 
+	.container-sm, 
+	.container {
+        max-width: 1320px;
+    }
+}
+
+@media (min-width: 1400px) {
+	.container-xxl, 
+	.container-xl, 
+	.container-lg, 
+	.container-md, 
+	.container-sm, 
+	.container {
+		max-width: 1495px;
+	}
+}

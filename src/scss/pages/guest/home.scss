@@ -1,0 +1,30 @@
+.home-page {	
+	.card {
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+
+		&__icon {
+			display: flex;
+			margin: 14px auto;
+			background: #F5F8FF;
+			height: 165px;
+			width: 165px;
+			// width: clamp(120px, 120px, 220px);
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+
+			img {
+				width: 85px;
+			}
+		}
+
+
+		.btn {
+			font-size: 20px;
+		}
+	}
+}

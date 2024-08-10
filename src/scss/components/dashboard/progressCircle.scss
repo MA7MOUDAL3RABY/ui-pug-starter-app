@@ -1,0 +1,33 @@
+@use "sass:map";
+
+.dash-home-progress {
+	circle-progress {
+		&::part(base) {
+			width: 150px;
+			height: auto;
+		}
+
+		&::part(circle) {
+			stroke-linecap: round;
+			stroke-width: 10px;
+			stroke: map.get($grey, 200);
+
+		}
+
+
+		&::part(value) {
+			stroke-width: 10px;
+			stroke: map.get($primary, 300);
+		}
+
+		&::part(text) {
+			// stroke-width: 5px;
+			// stroke: black;
+			font-family: Inter;
+			font-size: 28px;
+			font-style: normal;
+			font-weight: 600;
+			fill: #000000;
+		}
+	}
+}

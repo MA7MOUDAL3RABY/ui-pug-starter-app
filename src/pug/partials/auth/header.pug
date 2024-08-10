@@ -1,0 +1,51 @@
+.navbar.navbar-expand-xl.app-header
+	.container
+		a.navbar-brand(href="/") 
+			img(src="/assets/images/logo.svg")
+		button.navbar-toggler.border-0(type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+			span.navbar-toggler-icon
+		.collapse.navbar-collapse#navbarSupportedContent
+			ul.navbar-nav.me-auto.mb-2.mb-lg-0
+				li.nav-item.dropdown
+					a.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false") Services
+					ul.dropdown-menu(aria-labelledby="navbarDropdown")
+						li
+							a.dropdown-item(href="#") Action
+						li
+							a.dropdown-item(href="#") Another action
+						li
+							hr.dropdown-divider
+						li
+							a.dropdown-item(href="#") Something else here
+				li.nav-item.dropdown
+					a.nav-link.dropdown-toggle(href="#" id="MarketPlaceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false") Market Place
+					ul.dropdown-menu(aria-labelledby="MarketPlaceDropdown")
+						li
+							a.dropdown-item(href="#") Action
+						li
+							a.dropdown-item(href="#") Another action
+						li
+							hr.dropdown-divider
+						li
+							a.dropdown-item(href="#") Something else here
+				li.nav-item
+					a.nav-link(href="#" tabindex="-1" aria-disabled="true") Events
+				li.nav-item
+					a.nav-link(href="#" tabindex="-1" aria-disabled="true") List Your Agency
+				li.nav-item
+					a.nav-link(href="#" tabindex="-1" aria-disabled="true") Find Opportunities
+			ul.navbar-nav.me-0.d-flex.align-items-center
+				li.nav-item.ps-4.spacing-mx-7
+					a.btn.btn-primary(href="/pages/guest/receive-offers.html") Receive Offers
+				li.nav-item.dropdown
+					a.nav-link.dropdown-toggle(href="#" id="MarketPlaceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false") 
+						img(src="/assets/images/global/avatar.svg")
+					ul.dropdown-menu(aria-labelledby="MarketPlaceDropdown")
+						li
+							a.dropdown-item(href="/pages/dashboard/index.html") Dashboard
+						li
+							a.dropdown-item(href="#") Profile
+						li
+							hr.dropdown-divider
+						li
+							a.dropdown-item(href="#") Logout

@@ -1,0 +1,294 @@
+@use 'sass:map';
+@use 'sass:math';
+
+$color-groups: (
+	"main": $main,
+	"primary": $primary,
+	"secondary": $secondary,
+	"grey": $grey,
+);
+
+// Mixin to generate classes for each color group
+@mixin generate-color-classes($group, $colors) {
+	@each $shade, $color in $colors {
+		#{".bg-" + $group + "-" + $shade} {
+			background-color: $color !important;
+		}
+
+
+		#{".bg-" + $group + "-" + $shade + "-opacity-10"} {
+			background-color: rgba(red($color), green($color), blue($color), 10%) !important;
+		}
+
+		#{".text-" + $group + "-" + $shade} {
+			color: $color;
+		}
+
+		#{".border-" + $group + "-" + $shade} {
+			border: 1px solid $color;
+		}
+
+		#{".status-fill-" + $group + "-" + $shade} {
+			width: 16px;
+			height: 16px;
+			background-color: $color;
+			border-radius: 50%;
+		}
+
+		#{".status-orbit-" + $group + "-" + $shade} {
+			width: 10px;
+			height: 10px;
+			background-color: $color;
+			border-radius: 50%;
+			box-shadow: 0 0 0px 2px #ffffff, 0 0 0 4px $color;
+		}
+
+		#{".border-y-" + $group + "-" + $shade} {
+			border-top: 1px solid $color;
+			border-bottom: 1px solid $color;
+		}
+
+		#{".border-x-" + $group + "-" + $shade} {
+			border-left: 1px solid $color;
+			border-right: 1px solid $color;
+		}
+
+		#{".border-t-" + $group + "-" + $shade} {
+			border-top: 1px solid $color;
+		}
+
+		#{".border-b-" + $group + "-" + $shade} {
+			border-bottom: 1px solid $color;
+		}
+
+		#{".border-l-" + $group + "-" + $shade} {
+			border-left: 1px solid $color;
+		}
+
+		#{".border-r-" + $group + "-" + $shade} {
+			border-right: 1px solid $color;
+		}
+
+		#{".badge-" + $group + "-" + $shade} {
+			display: flex;
+			height: 31px;
+			padding: 4px 8px;
+			justify-content: center;
+			align-items: center;
+			gap: 8px;
+			background-color: $color;
+			color: darken($color, 60%);
+
+			* {
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 400;
+				color: map.get($main, 'black');
+			}
+		}
+
+		@if($shade ==200) {
+			#{".avatar-" + $group} {
+				border-radius: 50%;
+				padding: 10px;
+				background-color: $color !important;
+				color: darken($color, 40%);
+			}
+		}
+
+		#{".btn-" + $group + "-" + $shade},
+		#{".btn-outline-" + $group + "-" + $shade} {
+			background-color: $color;
+			color: if(lightness($color) > 50%, #000, #fff);
+			border: 1px solid $color;
+			line-height: 32px;
+			font-size: 22px;
+			font-weight: 600;
+			display: inline-block;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+
+			&:hover {
+				background-color: darken($color, 10%);
+				color: if(lightness($color) > 50%, #000, #fff);
+			}
+		}
+
+		#{".btn-outline-" + $group + "-" + $shade} {
+			background-color: transparent;
+			color: $color;
+
+			&:hover {
+				background-color: $color;
+				color: #fff;
+			}
+		}
+	}
+}
+
+// Loop through color groups and apply mixin
+@each $group, $colors in $color-groups {
+	@include generate-color-classes($group, $colors);
+}
+
+@each $key, $value in $fonts {
+	.font-#{$key} {
+		font-size: #{$value}px;
+
+		@media only screen and (max-width: 767px) {
+			font-size: #{$value * 0.75}px;
+		}
+	}
+
+	.gap-#{$key} {
+		gap: #{$value}px;
+	}
+
+	.left-#{$key} {
+		left: #{$value}px;
+		right: auto;
+
+		[dir="rtl"] & {
+			right: #{$value}px;
+			left: auto;
+		}
+	}
+
+	.top-#{$key} {
+		top: #{$value}px;
+	}
+
+	.right-#{$key} {
+		right: #{$value}px;
+		left: auto;
+
+		[dir="rtl"] & {
+			left: #{$value}px;
+			right: auto;
+		}
+	}
+
+	.bottom-#{$key} {
+		bottom: #{$value}px;
+
+		[dir="rtl"] & {
+			bottom: #{$value}px;
+		}
+	}
+
+	.spacer-#{$key} {
+		display: block;
+		min-height: #{$value}px;
+
+		@media only screen and (max-width: 767px) {
+			min-height: #{$value  * 0.65}px;
+		}
+
+		&.keep {
+			@media only screen and (max-width: 767px) {
+				height: #{$value}px;
+				min-height: #{$value}px;
+			}
+		}
+	}
+}
+
+@each $key, $value in $spacing {
+	.spacing-#{$key} {
+		height: #{$value}px;
+
+		@media only screen and (max-width: 767px) {
+			height: #{$value  * 0.65}px;
+		}
+
+		&.keep,
+		&.keep-sm {
+			@media only screen and (max-width: 767px) {
+				height: #{$value}px;
+				min-height: #{$value}px;
+			}
+		}
+	}
+
+	.spacing-p-#{$key} {
+		padding: #{$value}px;
+
+		@media screen and (max-width: 576px) {
+			padding: math.div($value, 2)px;
+		}
+	}
+
+	.spacing-pl-#{$key} {
+		padding-left: #{$value}px;
+	}
+
+	.spacing-pr-#{$key} {
+		padding-right: #{$value}px;
+	}
+
+	.spacing-px-#{$key} {
+		padding: 0 #{$value}px;
+	}
+
+	.spacing-py-#{$key} {
+		padding: #{$value}px 0;
+	}
+
+	.spacing-pxs-#{$key} {
+		padding-inline-start: #{$value}px;
+	}
+
+	.spacing-pxe-#{$key} {
+		padding-inline-end: #{$value}px;
+	}
+
+	.spacing-pys-#{$key} {
+		padding-block-start: #{$value}px;
+	}
+
+	.spacing-pye-#{$key} {
+		padding-block-end: #{$value}px;
+	}
+
+	.spacing-m-#{$key} {
+		margin: #{$value}px;
+	}
+
+	.spacing-ml-#{$key} {
+		margin-left: #{$value}px;
+	}
+
+	.spacing-mr-#{$key} {
+		margin-right: #{$value}px;
+	}
+
+	.spacing-my-#{$key} {
+		margin: #{$value}px 0;
+	}
+
+	.spacing-mx-#{$key} {
+		margin: 0 #{$value}px;
+	}
+
+	.spacing-mxs-#{$key} {
+		margin-inline-start: #{$value}px;
+	}
+
+	.spacing-mxe-#{$key} {
+		margin-inline-end: #{$value}px;
+	}
+
+	.spacing-mys-#{$key} {
+		margin-block-start: #{$value}px;
+	}
+
+	.spacing-mye-#{$key} {
+		margin-block-end: #{$value}px;
+	}
+}
+
+@each $key, $value in $weights {
+	.fw-#{$key} {
+		font-weight: #{$value};
+	}
+}

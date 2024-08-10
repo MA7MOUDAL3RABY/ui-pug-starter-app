@@ -1,0 +1,18 @@
+@import "./base/variables", "./base/config", "./base/loop", "./base/mixins", "./base/fonts.scss", "./base/global", "./base/helpers";
+
+// Import components styles
+@import "./components/components", "./partials/guest/header";
+
+// Import Fields
+@import "./components/fields/tags-field.scss";
+
+// Import layouts styles
+@import "./layouts/header", "./layouts/footer";
+
+@import  "./components/dashboard/chat.scss", "./components/dashboard/widget.scss", "./pages/dashboard/Rating.scss", "./components/dashboard/draggable.scss", "./components/dashboard/card.scss", "./partials/dashboard/sidebar.scss", "./partials/dashboard/layout.scss", "./components/dashboard/progressCircle.scss";
+
+@import "./customize-bootstrap.scss";
+
+@import "./pages/website/index.scss";
+// Import pages styles
+@import "./pages/index";

@@ -1,0 +1,83 @@
+@use 'sass:map';
+
+// $grid-breakpoints: (
+// 	xs: 0,
+// 	sm: 576px,
+// 	md: 768px,
+// 	lg: 992px,
+// 	xl: 1200px,
+// 	xxl: 1400px
+// );
+
+
+// $container-max-widths: (
+// 	sm: 540px,
+// 	md: 720px,
+// 	lg: 950px,
+// 	xl: 1000px,
+// 	xxl: 1280px
+// );
+
+// $primary:       $blue !default;
+// $secondary:     map.get($secondary, 500) !important;
+// $success:       $green !default;
+// $info:          $cyan !default;
+// $warning:       $yellow !default;
+// $danger:        $red !default;
+// $light:         $gray-100 !default;
+// $dark:          $gray-900 !default;
+
+// $theme-colors: (
+// "primary":    $primary,
+// "secondary":  	 $secondary,
+// "success":    $success,
+// "info":       $info,
+// "warning":    $warning,
+// "danger":     $danger,
+// "light":      $light,
+// "dark":       $dark
+// ) !important;
+
+
+
+.btn {
+	--bs-btn-padding-x: 20px;
+	--bs-btn-padding-y: 6px;
+	min-width: max-content;
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 4px;
+
+	// &.btn-secondary {
+	// 	--bs-btn-color: #ffffff;
+	// 	--bs-btn-bg: #F7A823;
+	// 	--bs-btn-border-color: #DD8E08;
+	// 	--bs-btn-hover-color: #ffffff;
+	// 	--bs-btn-hover-bg: #DD8E08;
+	// 	--bs-btn-hover-border-color: #da8c07;
+	// 	--bs-btn-focus-shadow-rgb: 130, 138, 145;
+	// 	--bs-btn-active-color: #ffffff;
+	// 	--bs-btn-active-bg: #DD8E08;
+	// 	--bs-btn-active-border-color: #DD8E08;
+	// 	--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+	// 	--bs-btn-disabled-color: #ffffffaf;
+	// 	--bs-btn-disabled-bg: #dd8f089c;
+	// 	--bs-btn-disabled-border-color: #dd8f0881;
+	// }
+}
+
+.btn-group {
+	@media screen and (max-width: 797px) {
+		flex-direction: column;
+		width: 100%;
+
+	}
+}
+
+.modal {
+	.modal-content {
+		@media screen and (max-width: 797px) {
+			padding: 0 !important;
+		}
+	}
+}

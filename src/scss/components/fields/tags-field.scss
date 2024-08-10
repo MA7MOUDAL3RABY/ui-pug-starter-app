@@ -1,0 +1,54 @@
+.tag-container {
+	border: 1px solid #ccc;
+	padding: 5px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	align-items: center;
+
+
+	.tag {
+		background-color: #a5a8ab;
+		color: white;
+		padding: 5px;
+		border-radius: 3px;
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		height: 30px;
+
+
+		span {
+			cursor: pointer;
+		}
+
+		input {
+			border: none;
+			outline: none;
+		}
+
+	}
+
+	input {
+		border: none;
+		outline: none;
+		flex: 1;
+	}
+
+}
+
+.ui-autocomplete {
+	min-width: 250px !important;
+	max-height: 400px;
+	overflow-y: auto;
+	padding: 15px;
+	background: white;
+	list-style-type: none;
+	position: absolute !important;
+	box-shadow: 0 0 5px 0 #19191955;
+
+	.ui-menu-item {
+		cursor: pointer;
+	}
+
+}

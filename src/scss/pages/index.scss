@@ -1,0 +1,17 @@
+@import "./guest/login.scss", "./guest/home.scss", "../components/dashboard/tour.scss", "./dashboard/marketplace/services.scss";
+
+.dashboard {
+	.app-content {
+		padding-top: 88px !important;
+
+		.page-header {
+			flex-direction: row;
+			gap: 10px;
+
+			@media screen and (max-width: 797px) {
+				flex-direction: column;
+				margin: 25px auto;
+			}
+		}
+	}
+}

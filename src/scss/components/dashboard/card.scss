@@ -1,0 +1,78 @@
+@use 'sass:map';
+
+.card {
+	border-radius: 8px;
+	height: max-content;
+	border-radius: 8px;
+	background: white;
+	padding: #{map.get($spacing, 8)}px;
+
+	@media screen and (max-width: 768px) {
+		padding: 15px
+	}
+
+
+	.card-body {
+		height: 100%;
+
+		.title {
+			color: map.get($primary, 400);
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 600;
+			margin-bottom: 8px;
+		}
+
+		.price {
+			margin-top: 16px;
+			font-size: 32px;
+			font-weight: 600;
+			color: map.get($grey, 600);
+		}
+
+		.btn {
+			font-size: 20px;
+			font-weight: 500;
+		}
+	}
+
+	&.active {
+		background-color: map.get($primary, 600);
+
+		.title,
+		.price,
+		* {
+			color: map.get($main, white);
+		}
+
+		object {
+			svg {
+				path {
+					fill: map.get($main, white) !important;
+				}
+			}
+		}
+
+		.btn {
+			font-size: 20px;
+			font-weight: 500;
+			color: map.get($primary, 600);
+			background-color: map.get($main, white);
+		}
+	}
+}
+
+.entsher-badge {
+	text-align: center;
+	border: 1px solid map.get($primary, 200);
+	border-radius: 10px;
+	padding: 25px 30px;
+	max-width: max-content;
+	margin: 0 auto;
+
+	@media screen and (max-width: 797px) {
+		width: 100%;
+	}
+
+
+}

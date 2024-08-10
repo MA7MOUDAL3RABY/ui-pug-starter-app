@@ -1,0 +1,93 @@
+@use 'sass:map';
+
+.custom-select {
+	position: relative;
+	width: 100%;
+	border-radius: 4px;
+	border: 0.5px solid map.get($grey, 400);
+
+	.dropdown-menu {
+		width: 100%;
+		position: absolute;
+	}
+
+	.dropdown-toggle {
+		&::after {
+			display: none;
+		}
+	}
+
+	.country-codes-menu {
+		border-radius: 5px;
+		overflow-x: hidden;
+		max-height: 320px;
+		overscroll-behavior: none;
+
+
+		li {
+			padding: 0 10px;
+			margin: 0 auto;
+			cursor: pointer;
+
+			.country {
+				background-color: map.get($primary, 100);
+				padding: 10px;
+
+
+				.flag {
+					width: 25px;
+					height: auto;
+					display: inline-block;
+					margin: 0 10px;
+				}
+
+				.key {
+					font-size: 18px;
+				}
+
+			}
+		}
+
+		.search_input {
+			margin-inline-start: 10px;
+
+			&:focus {
+				box-shadow: 0 !important;
+				outline: none;
+				border: 0;
+			}
+		}
+
+	}
+
+	.country-key-flag {
+		background-color: map.get($primary, 100);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 80px;
+		user-select: none;
+		cursor: pointer;
+
+		.flag-img {
+			img {
+				width: 24px;
+			}
+
+			.key {
+				font-size: 14px;
+				font-weight: 400;
+				color: map.get($grey, 600)
+			}
+		}
+	}
+
+	select {
+		opacity: 0.8;
+	}
+}
+
+button {
+	border: 0;
+	background: none;
+}

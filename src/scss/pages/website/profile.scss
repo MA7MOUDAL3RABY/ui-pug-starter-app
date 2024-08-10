@@ -1,0 +1,65 @@
+@use 'sass:map';
+
+.profile-header {
+	.cover {
+		min-height: 345px;
+		max-height: 345px;
+		width: 100%;
+
+		img {
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	.company-logo {
+		margin-top: -120px;
+	}
+
+	.profile-menu {
+		display: flex;
+		padding: 15px 0 0 0;
+		background-color: map.get($grey, 100);
+
+		ul {
+			display: flex;
+			width: 100%;
+			list-style-type: none;
+			justify-content: space-around;
+			gap: 5px;
+			align-items: center;
+
+			li {
+				border-left: 2px solid map.get($grey, 400);
+				text-align: center;
+				width: 100%;
+
+				&:first-child {
+					border: 0;
+				}
+
+				a {
+					display: block;
+					text-decoration: none;
+					color: map.get($grey, 600);
+
+				}
+			}
+		}
+	}
+
+	.company-rate {
+
+		li {
+			margin: 15px 0;
+
+			h5 {
+				color: map.get($grey, 500);
+
+				b {
+					color: map.get($grey, 600)
+				}
+			}
+		}
+	}
+}

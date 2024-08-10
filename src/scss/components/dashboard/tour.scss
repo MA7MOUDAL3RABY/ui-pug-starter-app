@@ -1,0 +1,90 @@
+@use 'sass:map';
+
+.tour-overlay {
+	position: fixed;
+	z-index: 999999999999999999999;
+	background: rgba(0, 0, 0, 0.50);
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+
+	@media screen and (max-width: 797px) {
+		display: none;
+	}
+
+	.tour-step {
+		position: absolute;
+		background: white;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		display: none;
+		left: 300px;
+
+		.tour-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 15px 10px;
+			color: map.get($main, white);
+			background-color: map.get($primary, 400);
+		}
+
+		.tour-footer {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 15px 10px;
+
+
+			.btn {
+				min-width: max-content;
+				padding: 0 10px;
+				font-size: 20px;
+			}
+		}
+
+		.tour-content {
+			font-size: 22px;
+			font-weight: 400;
+			padding: 10px;
+		}
+
+		&::after {
+			content: " ";
+			border-width: 15px;
+			border-style: solid;
+			position: absolute;
+			top: 100px;
+			left: -30px;
+			border-color: transparent white transparent transparent;
+		}
+	}
+
+	#step-1 {
+		top: 135px;
+		display: block;
+	}
+
+	#step-2 {
+		top: 185px;
+	}
+
+	#step-3 {
+		top: 230px;
+	}
+
+	#step-4 {
+		top: 280px;
+	}
+
+	#key-metrics,
+	#charts,
+	#settings {
+		margin: 20px 0;
+	}
+
+	.highlight {
+		border: 2px solid red;
+	}
+}

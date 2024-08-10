@@ -1,0 +1,25 @@
+@use 'sass:map';
+
+.login-page {
+	.social-login-btn {
+		font-size: 16px;
+		font-weight: 500;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid map.get($grey, 400);
+		color: map.get($grey, 400);
+		border-radius: 4px;
+
+		padding: #{map.get($spacing, 2)}px;
+
+		label {
+			min-width: 109px;
+			text-align: start;
+		}
+		.icon {
+			display: block;
+			margin-inline-end: #{map.get($spacing, 2)}px;
+		}
+	}
+}

@@ -1,0 +1,48 @@
+@use 'sass:map';
+
+.dashboard {
+	* {
+		font-family: "Inter", sans-serif;
+	}
+
+	.dashboard-header {
+
+		.icon {
+			border-radius: 100px;
+			border: 1px solid map.get($grey, 400);
+			padding: 8px;
+			position: relative;
+
+			.notification-badge {
+				position: absolute;
+				top: -6px;
+				right: -6px;
+				background-color: map.get($secondary, 600);
+				display: flex;
+				width: 18px;
+				height: 18px;
+				padding: 8px;
+				justify-content: center;
+				align-items: center;
+
+			}
+		}
+
+		.divider {
+			width: 1px;
+			height: 47px;
+		}
+
+		.dropdown {
+			.dropdown-toggle {
+				&::after {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.app-main {
+		position: relative;
+	}
+}
